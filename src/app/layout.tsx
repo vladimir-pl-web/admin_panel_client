@@ -3,6 +3,7 @@ import './globals.css'
 import 'tailwindcss'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import AuthProvider from '@/providers/auth'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,11 +20,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <AuthProvider>
         <Header />
         <main>
         {children}
         </main>
-
+        </AuthProvider>
       </body>
     </html>
   )
